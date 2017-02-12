@@ -31,7 +31,6 @@ ports_used = [
 
 config = {
     "log": {
-        "error": "/var/log/v2ray/error.log",
         "loglevel": "warning"
     },
     "inbound": {
@@ -40,7 +39,8 @@ config = {
         "protocol": "socks",
         "settings": {
             "auth": "noauth",
-            "udp": False
+            "udp": False,
+            "ip": "127.0.0.1"
         }
     },
     "outbound": {
@@ -80,6 +80,30 @@ config = {
             "rules": [
                 {
                     "type": "field",
+                    "port": "1-52",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "field",
+                    "port": "54-79",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "field",
+                    "port": "81-442",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "field",
+                    "port": "444-65535",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "chinasites",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "field",
                     "ip": [
                         "0.0.0.0/8",
                         "10.0.0.0/8",
@@ -102,18 +126,14 @@ config = {
                 {
                     "type": "chinaip",
                     "outboundTag": "direct"
-                },
-                {
-                    "type": "chinasites",
-                    "outboundTag": "direct"
                 }
             ]
         }
     },
     "transport": {
         "kcpSettings": {
-            "uplinkCapacity": 50,
-            "downlinkCapacity": 50
+            "uplinkCapacity": 10,
+            "downlinkCapacity": 20
         }
     }
 }

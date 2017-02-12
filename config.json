@@ -1,6 +1,6 @@
 {
     "log": {
-        "access": "/dev/null",
+        "error": "/var/log/v2ray/error.log",
         "loglevel": "warning"
     },
     "inbound": {
@@ -70,10 +70,8 @@
         "kcpSettings": {
             "uplinkCapacity": 50,
             "downlinkCapacity": 50,
-            "congestion": true,
-            "header": {
-                "type": "none"
-            }
+            "congestion": true
         }
     }
 }
+
