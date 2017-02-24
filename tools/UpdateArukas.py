@@ -26,7 +26,7 @@ node_vmess = {
 }
 
 ports_used = [
-    {'number': 10010, 'protocol': 'udp'}
+    {'number': 10010, 'protocol': 'tcp'}
 ]
 
 config = {
