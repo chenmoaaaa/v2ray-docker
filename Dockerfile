@@ -3,9 +3,12 @@ MAINTAINER "jinyu121" <jinyu121@126.com>
 
 # Basic environment setting
 RUN echo "Asia/Shanghai" > /etc/timezone
-RUN apt update \
-    && apt upgrade -y \
-    && apt install git curl unzip wget -y
+RUN apt update &&   \
+    apt install -y  \
+        curl        \
+        git         \
+        unzip       \
+        wget
 
 # Port for v2ray
 EXPOSE 10010
@@ -14,8 +17,8 @@ EXPOSE 10010
 EXPOSE 10086
 
 # Copy configuration file
-ADD config.json /etc/v2ray/config.json
-ADD run.sh /etc/v2ray/run.sh
+COPY config.json /etc/v2ray/config.json
+COPY run.sh /etc/v2ray/run.sh
 
 # Have fun
-ENTRYPOINT ["/bin/bash", "/etc/v2ray/run.sh"]
+ENTRYPOINT ["/etc/v2ray/run.sh"]

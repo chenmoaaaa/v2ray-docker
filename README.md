@@ -20,5 +20,5 @@ We use dict `config` in `tools/UpdateArukas.py` as the model of `config.json`.
 
 | Port | Type | Function |
 | :--: | :--: | :--: |
-| 10010 | UDP | V2Ray |
+| 10010 | TCP | V2Ray |
 | 10086 | TCP | ShadowSocks |
